@@ -1,6 +1,5 @@
 package com.packt.webstore.controller;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -19,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.packt.webstore.domain.Product;
-import com.packt.webstore.domain.repository.ProductRepository;
 import com.packt.webstore.service.ProductService;
 
 @Controller
