@@ -1,7 +1,7 @@
 package com.packt.webstore.controller;
 
 import java.io.File;
-import java.math.BigDecimal;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 
@@ -92,7 +92,7 @@ public class ProductController {
 		         
 		      if (productImage!=null && !productImage.isEmpty()) {
 		          try {
-		            productImage.transferTo(new File(rootDirectory+"resources\\images\\"+ newProduct.getProductId() + ".png"));
+		            productImage.transferTo(Paths.get(rootDirectory, "resources", "images", newProduct.getProductId() + ".png").toFile());
 		          } catch (Exception e) {
 		         throw new RuntimeException("Product Image saving failed", e);
 		      }
