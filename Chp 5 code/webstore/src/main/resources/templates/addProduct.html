@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+<title>Products</title>
+</head>
+<body>
+	<section>
+		<div class="jumbotron">
+			<div class="container">
+				<h1>Products</h1>
+				<p>Add products</p>
+			</div>
+		</div>
+	</section>
+	<section class="container">
+		<form method="POST" action="products.html" th:attr="action=@{/market/products/add}" th:object="${newProduct}"
+			class="form-horizontal" enctype="multipart/form-data">
+			<fieldset>
+				<legend>Add new product</legend>
+
+				<div class="form-group">
+					<label class="control-label col-lg-2 col-lg-2" for="productId"
+							th:text="#{addProduct.form.productId.label}">PRODUCTID</label>
+					<div class="col-lg-10">
+						<input th:field="*{productId}" type="text"
+							class="form:input-large" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-lg-2 col-lg-2" for="name"
+							th:text="#{addProduct.form.name.label}">NAME</label>
+					<div class="col-lg-10">
+						<input th:field="*{name}" type="text"
+							class="form:input-large" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-lg-2 col-lg-2" for="unitPrice"
+							th:text="#{addProduct.form.unitPrice.label}">UNITPRICE</label>
+					<div class="col-lg-10">
+						<input th:field="*{unitPrice}" type="text"
+							class="form:input-large" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-lg-2 col-lg-2" for="manufacturer"
+							th:text="#{addProduct.form.manufacturer.label}">MANUFACTURER</label>
+					<div class="col-lg-10">
+						<input th:field="*{manufacturer}" type="text"
+							class="form:input-large" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-lg-2 col-lg-2" for="category"
+							th:text="#{addProduct.form.category.label}">CATEGORY</label>
+					<div class="col-lg-10">
+						<input th:field="*{category}" type="text"
+							class="form:input-large" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-lg-2 col-lg-2" for="unitsInStock"
+							th:text="#{addProduct.form.unitsInStock.label}">UNITSINSTOCK</label>
+					<div class="col-lg-10">
+						<input th:field="*{unitsInStock}" type="text"
+							class="form:input-large" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-lg-2" for="description"
+							th:text="#{addProduct.form.description.label}">DESCRIPTION</label>
+					<div class="col-lg-10">
+						<textarea th:field="*{description}" rows="2"></textarea>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-lg-2" for="condition"
+							th:text="#{addProduct.form.condition.label}">CONDITION</label>
+					<div class="col-lg-10">
+					    <span th:each="conditionValue: ${ {'New', 'Old', 'Refurbished'} }">
+					    <input type="radio" th:field="*{condition}" th:value="${conditionValue}" />
+					    <label th:for="${#ids.prev('condition')}" th:text="${conditionValue}">CONDITIONVALUE</label>
+						</span>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-lg-2" for="productImage"
+							th:text="#{addProduct.form.productImage.label}">PRODUCTIMAGE
+					</label>
+					<div class="col-lg-10">
+						<input th:field="*{productImage}" type="file"
+							class="form:input-large" />
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<div class="col-lg-offset-2 col-lg-10">
+						<input type="submit" id="btnAdd" class="btn btn-primary"
+							value="Add" />
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</section>
+</body>
+</html>
