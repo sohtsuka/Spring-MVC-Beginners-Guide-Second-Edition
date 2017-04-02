@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+<title>Welcome</title>
+</head>
+<body>
+   <section>
+      <div class="jumbotron">
+         <div class="container">
+            <h1 class="alert alert-danger"> There is no product found with the Product id <span th:text="${invalidProductId}">INVALID_PRODUCT_ID</span></h1>
+         </div>
+      </div>
+   </section>
+
+   <section>
+      <div class="container">
+         <p th:text="${url}">URL</p>
+         <p th:text="${exception}">EXCEPTION</p>
+      </div>
+
+      <div class="container">
+         <p>
+            <a href="products.html" th:href="@{/market/products}" class="btn btn-primary">
+               <span class="glyphicon-hand-left glyphicon"></span> products
+            </a>
+         </p>
+      </div>
+      
+   </section>
+</body>
+</html>

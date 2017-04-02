@@ -24,7 +24,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                    .usernameParameter("userId")
                    .passwordParameter("password");
        
-       httpSecurity.formLogin().defaultSuccessUrl("/market/products/add")
+       httpSecurity.formLogin().defaultSuccessUrl("/market/products")
                     .failureUrl("/login?error");
        
        httpSecurity.logout().logoutSuccessUrl("/login?logout");
